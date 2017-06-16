@@ -43,7 +43,7 @@ RSpec.describe 'Users API', type: :request do
     end
     
     context 'when the request params are valid' do
-      let(:user_params) { FactoryGirl.attributes_for(:user) }
+      let(:user_params) { attributes_for(:user) }
       
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
@@ -106,7 +106,7 @@ RSpec.describe 'Users API', type: :request do
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
     end
-
+   
     it 'removes the user from database' do
       expect( User.find_by(id: user.id) ).to be_nil
     end
